@@ -23,7 +23,7 @@ import re
 import os
 import json
 import posixpath
-import urllib.request
+import urllib
 import glob
 import copy
 from collections import OrderedDict
