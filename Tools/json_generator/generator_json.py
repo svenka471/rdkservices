@@ -707,7 +707,7 @@ def LoadSchema(file, include_path, cpp_include_path, header_include_paths):
                         ref_tok[0] = os.path.join(path, ref_tok[0])
                 if not os.path.isfile(ref_tok[0]):
                     raise RuntimeError("$ref file '%s' not found" % ref_tok[0])
-                ref_file = '"file:%s#%s"' % (urllib.request.pathname2url(ref_tok[0]), ref_tok[1])
+                ref_file = '"file:%s#%s"' % (urllib.urlopen(ref_tok[0]), ref_tok[1])
                 tokens[c + 2] = ref_file
             elif t == '"$cppref"' and tokens[c + 1] == ":" and tokens[c + 2][:2] != '"#':
                 ref_file = tokens[c + 2].strip('"')
